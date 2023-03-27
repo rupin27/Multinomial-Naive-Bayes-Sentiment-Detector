@@ -1,7 +1,7 @@
 from run import *
 import matplotlib.pyplot as plt
 
-#Q1
+#Test 1
 
 truePos1_1, trueNeg1_1, falsePos1_1, falseNeg1_1 = naiveBayes(0.2, 0.2, 0.2, 0.2, logProb=False, laplaceSmooth=False)
 confusionMatrix(truePos1_1, trueNeg1_1, falsePos1_1, falseNeg1_1, "Naive Bayes without log-probabilities")
@@ -10,7 +10,7 @@ confusionMatrix(truePos1_1, trueNeg1_1, falsePos1_1, falseNeg1_1, "Naive Bayes w
 truePos1_2, trueNeg1_2, falsePos1_2, falseNeg1_2 = naiveBayes(0.2, 0.2, 0.2, 0.2, logProb=True, laplaceSmooth=False)
 confusionMatrix(truePos1_2, trueNeg1_2, falsePos1_2, falseNeg1_2, "Naive Bayes with log-probabilities")
 
-#Q2
+#Test2
 truePos2_1, trueNeg2_1, falsePos2_1, falseNeg2_1 = naiveBayes(0.2, 0.2, 0.2, 0.2, logProb=True, laplaceSmooth=True, smoothConst=1)
 confusionMatrix(truePos2_1, trueNeg2_1, falsePos2_1, falseNeg2_1, "Naive Bayes with Lapace Smoothing (alpha = 1)")
 
@@ -30,17 +30,17 @@ plt.title("Accuracy vs. Alpha")
 plt.plot(alphaVals, accuracyVals)
 plt.show
 
-# Q3
+# Test3
 
 truePos3, trueNeg3, falsePos3, falseNeg3 = naiveBayes(1, 1, 1, 1, logProb=True, laplaceSmooth=True, smoothConst=10)
 confusionMatrix(truePos3, trueNeg3, falsePos3, falseNeg3, 'Naive Bayes on Data Set with alpha = 10')
 
-# Q4
+# Test4
 
 truePos4, trueNeg4, falsePos4, falseNeg4 = naiveBayes(0.5, 0.5, 1, 1, logProb=True, laplaceSmooth=True, smoothConst=10)
 confusionMatrix(truePos4, trueNeg4, falsePos4, falseNeg4, r'Naive Bayes on Data Set with alpha = 10 and 50% of the training set')
 
-# Q6
+# Test5
 
 truePos6, trueNeg6, falsePos6, falseNeg6 = naiveBayes(0.1, 0.5, 1, 1, logProb=True, laplaceSmooth=True, smoothConst=1)
 confusionMatrix(truePos6, trueNeg6, falsePos6, falseNeg6, 'Naive Bayes on Data Set with alpha = 1')
