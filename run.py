@@ -6,6 +6,7 @@ def naiveBayes(posTrain, negTrain, posTest, negTest, logProb=False, laplaceSmoot
     evaluate_model(truePos, trueNeg, falsePos, falseNeg, True)
     return truePos, trueNeg, falsePos, falseNeg
 
+
 # if __name__=="__main__":
 # 	naiveBayes(0.2, 0.2, 0.2, 0.2)
 
