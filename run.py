@@ -1,26 +1,12 @@
 from utils import *
-import pprint
 
-def naive_bayes():
-	percentage_positive_instances_train = 0.0004
-	percentage_negative_instances_train = 0.0004
+def naiveBayes(posTrain, negTrain, posTest, negTest, logProb=False, laplaceSmooth=False, smoothConst=1):
+    pos_Train, neg_Train, pos_Test, neg_Test, vocab = load_data(posTrain, negTrain, posTest, negTest)
+    truePos, trueNeg, falsePos, falseNeg = test_model(pos_Train, neg_Train, pos_Test, neg_Test, vocab, logProb, laplaceSmooth, smoothConst)
+    evaluate_model(truePos, trueNeg, falsePos, falseNeg, True)
+    return truePos, trueNeg, falsePos, falseNeg
 
-	percentage_positive_instances_test  = 0.0004
-	percentage_negative_instances_test  = 0.0004
-	
-	(pos_train, neg_train, vocab) = load_training_set(percentage_positive_instances_train, percentage_negative_instances_train)
-	(pos_test,  neg_test)         = load_test_set(percentage_positive_instances_test, percentage_negative_instances_test)
+# if __name__=="__main__":
+# 	naiveBayes(0.2, 0.2, 0.2, 0.2)
 
-	print("Number of positive training instances:", len(pos_train))
-	print("Number of negative training instances:", len(neg_train))
-	print("Number of positive test instances:", len(pos_test))
-	print("Number of negative test instances:", len(neg_test))
 
-	with open('vocab.txt','w') as f:
-		for word in vocab:
-			f.write("%s\n" % word)
-	print("Vocabulary (training set):", len(vocab))
-	
-
-if __name__=="__main__":
-	naive_bayes()
